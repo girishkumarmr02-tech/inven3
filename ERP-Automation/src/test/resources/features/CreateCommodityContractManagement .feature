@@ -12,3 +12,4 @@ Feature: Commodity Contract Management
 
     When enter the user name as "username"
     When enter the user password as "password"
+    Then the user should be navigated to the dashboard

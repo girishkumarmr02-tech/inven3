@@ -17,12 +17,7 @@ public class WebDriverCommonLibrary {
     }
 
     public WebElement explicitWait(By locator) {
-
-        WebDriverWait wait =
-                new WebDriverWait(driver, Duration.ofSeconds(50));
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(locator)
-        );
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

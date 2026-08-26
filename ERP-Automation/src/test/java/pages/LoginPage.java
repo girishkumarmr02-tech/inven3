@@ -13,6 +13,7 @@ public class LoginPage {
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
     private final By loginButton = By.xpath("//button[normalize-space()='Login']");
+    private final By dashboardHeader = By.xpath("(//span[text()='Dashboard'])[2]");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -21,7 +22,6 @@ public class LoginPage {
     }
 
     public void enterUsername(String username) {
-
         WebElement usernameElement = webDriverCommonLibrary.explicitWait(usernameField);
         usernameElement.clear();
         usernameElement.sendKeys(username);
@@ -37,5 +37,13 @@ public class LoginPage {
     public void clickLogin() {
         webDriverCommonLibrary.explicitWait(loginButton);
         driver.findElement(loginButton).click();
+    }
+
+    public boolean isDashboardDisplayed() {
+        try {
+            return webDriverCommonLibrary.explicitWait(dashboardHeader).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
